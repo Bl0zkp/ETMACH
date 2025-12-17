@@ -1,0 +1,21 @@
+{
+  "roc_auc": 0.6816834032164718,
+  "pr_auc": 0.15662159190885433,
+  "approve_threshold": 0.2,
+  "reject_threshold": 0.5,
+  "confusion_matrix_at_reject_threshold": [
+    [
+      176432,
+      106254
+    ],
+    [
+      8758,
+      16067
+    ]
+  ],
+  "decision_counts": {
+    "REVISI\u00d3N MANUAL": 173091,
+    "RECHAZAR": 122321,
+    "APROBAR": 12099
+  }
+}
