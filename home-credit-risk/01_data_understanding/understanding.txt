@@ -1,0 +1,74 @@
+PARTE 01 – UNDERSTANDING (BUSINESS & DATA UNDERSTANDING)
+
+1. Business Understanding
+
+El objetivo del proyecto es abordar un problema de negocio relacionado con la
+evaluación del riesgo crediticio. Una institución financiera debe decidir si
+otorga o no un crédito a un solicitante, minimizando el riesgo de incumplimiento
+de pago y, al mismo tiempo, manteniendo un volumen adecuado de clientes aprobados.
+
+Desde la perspectiva del negocio, el objetivo es reducir las pérdidas asociadas
+a clientes que no pagan sus créditos, apoyando el proceso de decisión mediante
+un modelo predictivo que permita clasificar a los solicitantes según su nivel
+de riesgo.
+
+Este problema se traduce a un problema de Machine Learning de clasificación
+binaria, donde la variable objetivo indica si un cliente incumple (1) o no
+incumple (0) con el pago del crédito.
+
+2. Criterios de éxito
+
+El éxito del proyecto se define tanto desde una perspectiva técnica como de
+negocio.
+
+Desde el punto de vista técnico, se utilizan métricas adecuadas para problemas
+desbalanceados, específicamente ROC AUC y PR AUC, que permiten evaluar la
+capacidad del modelo para discriminar entre clientes riesgosos y no riesgosos.
+
+Desde el punto de vista del negocio, el modelo debe entregar una probabilidad
+de incumplimiento que permita definir decisiones operativas. Para ello, se
+establecen umbrales que clasifican a los solicitantes en tres categorías:
+aprobación automática, revisión manual o rechazo del crédito.
+
+3. Data Understanding
+
+El proyecto utiliza el dataset Home Credit, el cual contiene información
+histórica de clientes y créditos provenientes de múltiples fuentes de datos.
+La información no se encuentra en una sola tabla, sino distribuida en varios
+archivos que representan distintos aspectos del comportamiento financiero de
+los clientes.
+
+Entre las principales fuentes de datos se encuentran:
+- Información principal del solicitante (application)
+- Créditos anteriores (previous_application)
+- Información crediticia externa (bureau y bureau_balance)
+- Historial de pagos de cuotas (installments_payments)
+- Créditos de consumo y tarjetas (POS_CASH_balance y credit_card_balance)
+
+Las tablas se relacionan principalmente mediante los identificadores
+SK_ID_CURR (cliente) y SK_ID_PREV (créditos previos), lo que requiere un proceso
+de integración y agregación para construir un dataset único a nivel de cliente.
+
+4. Desafíos identificados
+
+Durante esta etapa se identificaron diversos desafíos relevantes:
+- Fuerte desbalance de clases entre clientes que incumplen y los que no.
+- Presencia de valores faltantes en múltiples variables.
+- Datos distribuidos en distintas tablas con relaciones jerárquicas.
+- Necesidad de generar variables agregadas para capturar el comportamiento
+  histórico de los clientes.
+
+5. Decisiones adoptadas
+
+A partir del entendimiento del problema y de los datos, se decidió utilizar la
+metodología CRISP-DM para estructurar el proyecto. Se definió la construcción
+de un dataset consolidado a nivel de cliente y el uso de un modelo baseline
+interpretable, como la regresión logística, para establecer una primera
+solución funcional.
+
+Asimismo, se definió que el modelo sería expuesto mediante una API REST,
+permitiendo simular su uso en un entorno real de negocio.
+
+En conclusión, la fase de Understanding permitió comprender el problema de
+negocio, las características de los datos disponibles y establecer los
+criterios técnicos y operativos que guían el desarrollo del resto del proyecto.
